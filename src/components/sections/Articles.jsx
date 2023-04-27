@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchArticles } from "../../features/New";
-
+import { selectArticle } from "../../features/New";
+import { Link } from "react-router-dom";
 const Articles = () => {
   const { articles, loading } = useSelector((state) => state.articles);
   const dispatch = useDispatch();
-  console.log("articles", articles);
   useEffect(() => {
     dispatch(fetchArticles());
   }, []);
   return (
     <div>
       <h1 className="flex flex-col items-center p-[70px] text-5xl font-bold">
-        Articles
+        <Link>Article</Link>
       </h1>
 
       <div className="grid grid-cols-3 gap-4 px-40">
         {articles.map((article, index) => {
           return (
-            <div
+            <Link
+              to="/fullarticle"
+              onClick={() => {
+                dispatch(selectArticle(article));
+              }}
               className={`relative shadow-md ${
                 index == 1 || index == 6
                   ? "col-span-1  row-span-2"
@@ -26,12 +30,17 @@ const Articles = () => {
               }`}
             >
               <div className="h-full">
-                <img
-                  src={article.urlToImage}
-                  className={`rounded-md object-cover ${
-                    index === 1 || index === 6 ? "h-full" : ""
-                  }`}
-                />
+                {article.urlToImage ? (
+                  <img
+                    src={article.urlToImage}
+                    className={`rounded-md object-cover ${
+                      index === 1 || index === 6 ? "h-full" : ""
+                    }`}
+                  />
+                ) : (
+                  <img src="/Images/business.avif" />
+                )}
+
                 <div className="bg-black h-fit- absolute w-full top-0 h-full opacity-40 rounded-md"></div>
               </div>
 
@@ -44,7 +53,7 @@ const Articles = () => {
               >
                 {article.title}
               </h1>
-            </div>
+            </Link>
           );
         })}
       </div>

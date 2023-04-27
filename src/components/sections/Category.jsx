@@ -2,21 +2,29 @@ import Categories from "../ui/Categories";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper";
-const Home = () => {
+import { useState } from "react";
+import { Filter } from "../../features/New";
+import { useDispatch } from "react-redux";
+import { fetchByCategory } from "../../features/New";
+const Category = () => {
   const data = [
     {
       img: "/Images/business.avif",
       title: "Business News",
+      category: "business",
     },
     {
       img: "/Images/business.avif",
-      title: "Politics News",
+      title: "Entertainment news",
+      category: "entertainment",
     },
     {
       img: "/Images/business.avif",
       title: "Sports News",
+      category: "sports",
     },
   ];
+  const dispatch = useDispatch();
   return (
     <div>
       <div className="flex flex-col items-center p-[70px]">
@@ -29,7 +37,16 @@ const Home = () => {
       <div>
         <div className="flex items-center justify-between gap-4">
           {data.map((item, index) => {
-            return <Categories img={item.img} title={item.title} />;
+            return (
+              <Categories
+                img={item.img}
+                title={item.title}
+                handleClick={() => {
+                  dispatch(Filter(item.category));
+                  dispatch(fetchByCategory(item.category));
+                }}
+              />
+            );
           })}
         </div>
       </div>
@@ -37,4 +54,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Category;

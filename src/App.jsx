@@ -1,16 +1,18 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-import Navbar from "./components/layout/Navbar";
-import Home from "./components/sections/Home";
-import Articles from "./components/sections/Articles";
+import FullArticle from "../pages/FullArticle";
+import Home from "../pages/Home";
+import ArticlesByPublishers from "../pages/ArticlesByPublishers";
+
 const App = () => {
   return (
-    <div>
-      <Navbar />
-      <Home />
-      <Articles />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="fullarticle" element={<FullArticle />} />
+        <Route path="articlesbypublishers" element={<ArticlesByPublishers />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
