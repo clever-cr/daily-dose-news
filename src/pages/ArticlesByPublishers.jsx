@@ -38,7 +38,6 @@ const ArticlesByPublishers = () => {
           })}
         </div>
       </div>
-
       <Footer />
     </div>
   );

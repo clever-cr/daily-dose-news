@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const apiKey = import.meta.env.VITE_API_KEY;
-const url = `https://newsapi.org/v2/top-headlines?country=us&pageSize=10&apiKey=${apiKey}`;
-const publishersUrl = `https://newsapi.org/v2/top-headlines/sources?apiKey=${apiKey}`;
+const url = `https://news-proxy.netlify.app/api/top-headlines?country=us&pageSize=10&apiKey=${apiKey}`;
+const publishersUrl = `https://news-proxy.netlify.app/api/top-headlines/sources?apiKey=${apiKey}`;
 
 export const fetchByCategory = createAsyncThunk(
     "articles/fetchByCategory",
     async (category) => {
-        const categoryUrl = `https://newsapi.org/v2/top-headlines?category=${category}&pageSize=10&apiKey=${apiKey}`
+        const categoryUrl = `https://news-proxy.netlify.app/api/top-headlines?category=${category}&pageSize=10&apiKey=${apiKey}`
         const res = await fetch(categoryUrl)
         return res.json()
     }
@@ -15,7 +15,7 @@ export const fetchByCategory = createAsyncThunk(
 export const fetchByKeyword = createAsyncThunk(
     "articles/fetchByKeyword",
     async (keyword) => {
-        const searchUrl = `https://newsapi.org/v2/top-headlines?q=${keyword}&apiKey=${apiKey}`
+        const searchUrl = `https://news-proxy.netlify.app/api/top-headlines?q=${keyword}&apiKey=${apiKey}`
         const res = await fetch(searchUrl)
         return res.json()
     }
@@ -24,7 +24,7 @@ export const fetchByKeyword = createAsyncThunk(
 export const fetchByPublisher = createAsyncThunk(
     "articles/fetchByPublisher",
     async (publisher) => {
-        const articleUrl = `https://newsapi.org/v2/top-headlines?sources=${publisher}&apiKey=${apiKey}`
+        const articleUrl = `https://news-proxy.netlify.app/api/top-headlines?sources=${publisher}&apiKey=${apiKey}`
         const res = await fetch(articleUrl)
         return res.json()
 
