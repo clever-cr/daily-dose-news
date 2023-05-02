@@ -22,7 +22,7 @@ const ArticlesByPublishers = () => {
                 }}
                 className={`relative shadow-md ${
                   index == 1 || index == 6
-                    ? "col-span-1  row-span-2"
+                    ? "col-span-1  row-span-2 "
                     : "col-span-1"
                 }`}
               >

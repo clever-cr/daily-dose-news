@@ -21,13 +21,13 @@ const Articles = () => {
           {articles.map((article, index) => {
             return (
               <Link
-                to="/fullarticle"
+                to="/full-article"
                 onClick={() => {
                   dispatch(selectArticle(article));
                 }}
                 className={`relative shadow-md ${
                   index == 1 || index == 6
-                    ? "col-span-1  row-span-2"
+                    ? "col-span-1  row-span-2 md:row-span-1"
                     : "col-span-1"
                 }`}
               >

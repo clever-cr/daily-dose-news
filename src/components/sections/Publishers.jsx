@@ -34,7 +34,7 @@ const Publishers = () => {
               >
                 <button className="flex items-center gap-1 border p-4 border-primary hover:text-primary hover:border-white font-bold">
                   <RiNewspaperLine />
-                  <Link to="/articlesbypublishers">{publisher.name}</Link>
+                  <Link to="/articles-by-publishers">{publisher.name}</Link>
                 </button>
               </div>
             );
