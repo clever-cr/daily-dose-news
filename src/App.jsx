@@ -1,16 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React from "react";
-import FullArticle from "../pages/FullArticle";
-import Home from "../pages/Home";
-import ArticlesByPublishers from "../pages/ArticlesByPublishers";
+import FullArticle from "./pages/FullArticle";
+import Home from "./pages/Home";
+import ArticlesByPublishers from "./pages/ArticlesByPublishers";
+import Articles from "./components/sections/Articles";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="fullarticle" element={<FullArticle />} />
-        <Route path="articlesbypublishers" element={<ArticlesByPublishers />} />
+        <Route path="full-article" element={<FullArticle />} />
+        <Route
+          path="articles-by-publishers"
+          element={<ArticlesByPublishers />}
+        />
+        <Route path="articles" element={<Articles />} />
       </Routes>
     </BrowserRouter>
   );

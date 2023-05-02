@@ -52,7 +52,7 @@ export const articleSlice = createSlice({
         articles: [], loading: false, publishers: [], selectedArticle: {}
     },
     reducers: {
-        Filter: (state, action) => {
+        filter: (state, action) => {
 
             state.publishers = state.publishers.filter((publisher) => {
                 return (publisher.category == action.payload)
@@ -88,5 +88,5 @@ export const articleSlice = createSlice({
         })
     }
 })
-export const { Filter, selectArticle, searchFilter } = articleSlice.actions;
+export const { filter, selectArticle } = articleSlice.actions;
 export default articleSlice.reducer;
