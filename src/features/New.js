@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+const apiKey = import.meta.env.VITE_API_KEY;
 const url = `https://news-proxy.netlify.app/api/top-headlines?country=us&pageSize=10&apiKey=${apiKey}`;
 const publishersUrl = `https://news-proxy.netlify.app/api/top-headlines/sources?apiKey=${apiKey}`;
 
