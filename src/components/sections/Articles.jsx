@@ -32,14 +32,10 @@ const Articles = () => {
                 }`}
               >
                 <div className="h-full">
-                  {article.urlToImage ? (
-                    <img
-                      src={article.urlToImage}
-                      className={`rounded-md object-cover brightness-50 h-full `}
-                    />
-                  ) : (
-                    <img src="/Images/business.avif" />
-                  )}
+                  <img
+                    src={article.urlToImage || "/Images/business.avif"}
+                    className={`rounded-md object-cover brightness-50 h-full `}
+                  />
                 </div>
                 <h1 className="absolute text-white p-2 bottom-0 font-bold right-6 left-0 text-base  text-whitep-2">
                   {article.title}
