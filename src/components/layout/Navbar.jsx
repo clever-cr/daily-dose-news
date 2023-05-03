@@ -38,11 +38,13 @@ const Navbar = () => {
               type="text"
               placeholder="search....."
             />
-            <BsSearch
-              onClick={() => {
-                inputValue.trim() && dispatch(fetchByKeyword(inputValue));
-              }}
-            />
+            <button>
+              <BsSearch
+                onClick={() => {
+                  inputValue.trim() && dispatch(fetchByKeyword(inputValue));
+                }}
+              />
+            </button>
           </div>
         </div>
       </div>
