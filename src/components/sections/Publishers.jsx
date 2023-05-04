@@ -24,20 +24,18 @@ const Publishers = () => {
         </div>
 
         <div className="grid grid-cols-6 gap-4 pt-10 md:grid-cols-2">
-          {publishers.map((publisher, index) => {
-            return (
-              <div
-                onClick={() => {
-                  dispatch(fetchByPublisher(publisher.name));
-                }}
-              >
-                <button className="flex items-center gap-1 border p-4 border-primary hover:text-primary hover:border-white font-bold">
-                  <RiNewspaperLine />
-                  <Link to="/articles-by-publishers">{publisher.name}</Link>
-                </button>
-              </div>
-            );
-          })}
+          {publishers.map((publisher, index) => (
+            <div
+              onClick={() => {
+                dispatch(fetchByPublisher(publisher.name));
+              }}
+            >
+              <button className="flex items-center gap-1 border p-4 border-primary hover:text-primary hover:border-white font-bold">
+                <RiNewspaperLine />
+                <Link to="/articles-by-publishers">{publisher.name}</Link>
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </div>

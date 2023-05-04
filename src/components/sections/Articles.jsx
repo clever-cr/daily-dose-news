@@ -18,31 +18,29 @@ const Articles = () => {
           <Link>Articles</Link>
         </h1>
         <div className="grid grid-cols-3 gap-4 px-40 md:grid-cols-1 md:px-5">
-          {articles.map((article, index) => {
-            return (
-              <Link
-                to="/full-article"
-                onClick={() => {
-                  dispatch(selectArticle(article));
-                }}
-                className={`relative shadow-md ${
-                  index == 1 || index == 6
-                    ? "col-span-1  row-span-2 md:row-span-1"
-                    : "col-span-1"
-                }`}
-              >
-                <div className="h-full">
-                  <img
-                    src={article.urlToImage || "/Images/business.avif"}
-                    className={`rounded-md object-cover brightness-50 h-full `}
-                  />
-                </div>
-                <h1 className="absolute text-white p-2 bottom-0 font-bold right-6 left-0 text-base  text-whitep-2">
-                  {article.title}
-                </h1>
-              </Link>
-            );
-          })}
+          {articles.map((article, index) => (
+            <Link
+              to="/full-article"
+              onClick={() => {
+                dispatch(selectArticle(article));
+              }}
+              className={`relative shadow-md ${
+                index == 1 || index == 6
+                  ? "col-span-1  row-span-2 md:row-span-1"
+                  : "col-span-1"
+              }`}
+            >
+              <div className="h-full">
+                <img
+                  src={article.urlToImage || "/Images/business.avif"}
+                  className={`rounded-md object-cover brightness-50 h-full `}
+                />
+              </div>
+              <h1 className="absolute text-white p-2 bottom-0 font-bold right-6 left-0 text-base  text-whitep-2">
+                {article.title}
+              </h1>
+            </Link>
+          ))}
         </div>
       </div>
     </div>

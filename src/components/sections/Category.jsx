@@ -38,20 +38,18 @@ const Category = () => {
             onSwiper={(slide) => setSlide(slide)}
             loop
           >
-            {data.map((item, index) => {
-              return (
-                <SwiperSlide>
-                  <Categories
-                    img={item.img}
-                    title={item.title}
-                    handleClick={() => {
-                      dispatch(filter(item.category));
-                      dispatch(fetchByCategory(item.category));
-                    }}
-                  />
-                </SwiperSlide>
-              );
-            })}
+            {data.map((item, index) => (
+              <SwiperSlide>
+                <Categories
+                  img={item.img}
+                  title={item.title}
+                  handleClick={() => {
+                    dispatch(filter(item.category));
+                    dispatch(fetchByCategory(item.category));
+                  }}
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
 
           <div className="flex absolute right-[160px] gap-4 mt-2- p-3 bg-gray-50 md:right-5">
